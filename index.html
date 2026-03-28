@@ -191,6 +191,78 @@
     .metrics-grid{grid-template-columns:1fr 1fr;}
     .speed-group{display:none;}
   }
+
+  /* ══ COMPARE MODE ══ */
+  .btn-compare{background:linear-gradient(135deg,var(--accent3),#f97316);color:#000;font-size:0.88rem;padding:11px 18px;box-shadow:0 4px 22px rgba(245,158,11,0.2);}
+  .btn-compare:hover:not(:disabled){opacity:0.9;transform:translateY(-1px);}
+
+  .cmp-dashboard{display:flex;flex-direction:column;gap:20px;}
+
+  /* Winner banner */
+  .winner-banner{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .winner-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;position:relative;overflow:hidden;transition:border-color 0.2s;}
+  .winner-card.best{border-color:var(--green);box-shadow:0 0 18px rgba(16,185,129,0.1);}
+  .winner-card-label{font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:6px;}
+  .winner-card-algo{font-size:1rem;font-weight:800;color:var(--text);}
+  .winner-card-val{font-size:1.5rem;font-weight:700;font-family:'JetBrains Mono',monospace;margin-top:2px;}
+  .winner-badge{position:absolute;top:10px;right:10px;background:var(--green);color:#000;font-size:0.58rem;font-weight:700;padding:2px 7px;border-radius:10px;font-family:'JetBrains Mono',monospace;}
+  .winner-card-sub{font-size:0.68rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:3px;}
+
+  /* Metric comparison bars */
+  .cmp-metric-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+  .cmp-metric-header{padding:12px 18px;border-bottom:1px solid var(--border);background:var(--surface2);display:flex;align-items:center;gap:10px;}
+  .cmp-metric-header h3{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);}
+  .cmp-metric-tabs{display:flex;gap:4px;margin-left:auto;}
+  .cmp-metric-tab{padding:4px 10px;border-radius:6px;font-size:0.68rem;font-weight:700;cursor:pointer;border:none;background:none;color:var(--muted);transition:all 0.2s;font-family:'JetBrains Mono',monospace;}
+  .cmp-metric-tab.active{background:var(--surface);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,0.3);}
+  .cmp-metric-body{padding:18px;}
+  .cmp-bars-grid{display:flex;flex-direction:column;gap:14px;}
+  .cmp-algo-row{display:flex;flex-direction:column;gap:5px;}
+  .cmp-algo-name{font-size:0.72rem;font-weight:700;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:8px;}
+  .cmp-algo-badge{padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:700;}
+  .cmp-bar-wrap{display:flex;align-items:center;gap:10px;}
+  .cmp-bar-track{flex:1;background:var(--surface2);border-radius:5px;height:28px;overflow:hidden;border:1px solid var(--border);position:relative;}
+  .cmp-bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:10px;font-size:0.7rem;font-family:'JetBrains Mono',monospace;font-weight:700;color:#000;transition:width 0.7s cubic-bezier(0.34,1.56,0.64,1);position:relative;}
+  .cmp-bar-fill.is-best::after{content:'★ BEST';position:absolute;right:8px;font-size:0.6rem;font-weight:700;color:#000;opacity:0.7;}
+  .cmp-bar-num{font-size:0.78rem;font-family:'JetBrains Mono',monospace;font-weight:700;min-width:42px;text-align:right;}
+  .cmp-bar-rank{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;font-family:'JetBrains Mono',monospace;flex-shrink:0;}
+
+  /* All-algorithms Gantt */
+  .cmp-gantt-grid{display:flex;flex-direction:column;gap:8px;}
+  .cmp-gantt-row{display:grid;grid-template-columns:100px 1fr;gap:12px;align-items:center;}
+  .cmp-gantt-label{font-size:0.7rem;font-weight:700;font-family:'JetBrains Mono',monospace;text-align:right;color:var(--muted);}
+  .cmp-gantt-bars{display:flex;gap:1px;min-width:fit-content;height:28px;align-items:stretch;}
+  .cmp-gantt-bar{display:flex;align-items:center;justify-content:center;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:0.6rem;font-weight:700;}
+  .cmp-gantt-bar.idle{background:var(--surface2);border:1px solid var(--border);color:var(--muted);}
+  .cmp-gantt-scroll{overflow-x:auto;}
+  .cmp-gantt-axis{display:grid;grid-template-columns:100px 1fr;gap:12px;margin-top:4px;}
+  .cmp-gantt-ticks{display:flex;gap:1px;min-width:fit-content;}
+  .cmp-gantt-tick{font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--muted);}
+
+  /* Per-process breakdown */
+  .cmp-proc-table{width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:0.72rem;min-width:560px;}
+  .cmp-proc-table th{padding:7px 10px;text-align:center;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);border-bottom:1px solid var(--border);background:var(--surface2);}
+  .cmp-proc-table th:first-child,.cmp-proc-table th:nth-child(2){text-align:left;}
+  .cmp-proc-table td{padding:7px 10px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.03);}
+  .cmp-proc-table td:first-child,.cmp-proc-table td:nth-child(2){text-align:left;}
+  .cmp-proc-table .best-cell{color:var(--green);font-weight:700;}
+  .cmp-proc-table .worst-cell{color:var(--red);}
+  .cmp-proc-group td{background:rgba(255,255,255,0.015);}
+  .cmp-proc-group-hdr td{background:rgba(0,229,255,0.04);border-top:1px solid var(--border);}
+  .sparkbar{display:inline-block;height:8px;border-radius:3px;vertical-align:middle;margin-left:4px;}
+
+  /* Throughput / utilisation row */
+  .cmp-stat-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+  .cmp-stat-card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 12px;text-align:center;}
+  .cmp-stat-lbl{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+  .cmp-stat-val{font-size:1rem;font-weight:700;font-family:'JetBrains Mono',monospace;margin-top:3px;}
+  .cmp-stat-sub{font-size:0.62rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:1px;}
+
+  @media(max-width:900px){
+    .winner-banner{grid-template-columns:1fr 1fr;}
+    .cmp-stat-row{grid-template-columns:repeat(3,1fr);}
+    .cmp-gantt-row{grid-template-columns:70px 1fr;}
+  }
 </style>
 </head>
 <body>
@@ -271,11 +343,12 @@
           </div>
 
           <div style="display:flex;gap:8px;margin-bottom:10px;">
-            <button id="mode-step" class="btn btn-secondary" style="flex:1;font-size:0.78rem;" onclick="setMode('step')">⊞ Step-by-Step</button>
-            <button id="mode-full" class="btn btn-ghost" style="flex:1;font-size:0.78rem;" onclick="setMode('full')">▶ Full Run</button>
+            <button id="mode-step" class="btn btn-secondary" style="flex:1;font-size:0.72rem;" onclick="setMode('step')">⊞ Step</button>
+            <button id="mode-full" class="btn btn-ghost" style="flex:1;font-size:0.72rem;" onclick="setMode('full')">▶ Full</button>
+            <button id="mode-compare" class="btn btn-ghost" style="flex:1;font-size:0.72rem;" onclick="setMode('compare')">⚖ Compare</button>
           </div>
 
-          <button class="btn btn-run btn-block" onclick="startSim()">▶ Start Simulation</button>
+          <button class="btn btn-run btn-block" id="btn-start-sim" onclick="startSim()">▶ Start Simulation</button>
         </div>
       </div>
     </div>
@@ -377,8 +450,12 @@ function setMode(m){
   simMode=m;
   document.getElementById('mode-step').className='btn '+(m==='step'?'btn-secondary':'btn-ghost');
   document.getElementById('mode-full').className='btn '+(m==='full'?'btn-secondary':'btn-ghost');
-  document.getElementById('mode-step').style.flex='1';
-  document.getElementById('mode-full').style.flex='1';
+  document.getElementById('mode-compare').className='btn '+(m==='compare'?'btn-compare':'btn-ghost');
+  ['mode-step','mode-full','mode-compare'].forEach(id=>{document.getElementById(id).style.flex='1';});
+  const startBtn=document.getElementById('btn-start-sim');
+  if(m==='compare') startBtn.textContent='⚖ Compare All Algorithms';
+  else if(m==='full') startBtn.textContent='▶ Full Run';
+  else startBtn.textContent='▶ Start Simulation';
 }
 
 document.querySelectorAll('.algo-option').forEach(opt=>{
@@ -396,6 +473,7 @@ function startSim(){
   if(!processes.length){showToast('Add at least one process','error');return;}
   stopAuto();
   if(simMode==='step') startStepSim();
+  else if(simMode==='compare') startCompareSim();
   else startFullSim();
 }
 
@@ -712,13 +790,22 @@ function buildMLFQ(procs, q0, q1, aging){
       gantt.push({pid:chosen.pid, start:t, end:t+1, color:chosen.color});
       ganttQ[runLevel].push({pid:chosen.pid, start:t, end:t+1, color:chosen.color});
       t++; chosen.rem--;
+
+      // ── FIX: mark done BEFORE enq/aging so the finished process
+      //         cannot be re-inserted into a queue by enq() or promoted
+      //         by applyAging() before done.add() fires.
+      const justFinished = chosen.rem===0;
+      if(justFinished){
+        chosen.finish=t; chosen.tat=t-chosen.arrival; chosen.wt=chosen.tat-chosen.burst;
+        done.add(chosen.pid);
+      }
+
       enq(t);
       const ageTick=applyAging(t);  // aging already calls syncLevels()
 
       const evT=[...ageTick, {type:'run',msg:`${chosen.pid} tick ${i}/${slice} in Q${runLevel} · remaining=${chosen.rem}`}];
 
-      if(chosen.rem===0){
-        chosen.finish=t; chosen.tat=t-chosen.arrival; chosen.wt=chosen.tat-chosen.burst; done.add(chosen.pid);
+      if(justFinished){
         evT.push({type:'done',msg:`${chosen.pid} done · WT=${chosen.wt} · TAT=${chosen.tat}`});
         syncLevels();
         simSteps.push(snap(null, evT));
@@ -1129,13 +1216,20 @@ function fullMLFQ(procs, quantums, aging){
     for(let i=1;i<=slice;i++){
       gantt.push({pid:chosen.pid,start:t,end:t+1,color:chosen.color});
       t++; chosen.remaining--;
-      enq(t);
-      applyAging(t);  // aging every tick, same as step engine
+
+      // ── FIX: mark done BEFORE enq/aging so the finished process
+      //         cannot be re-inserted into a queue by enq() or promoted
+      //         by applyAging() before done.add() fires.
       if(chosen.remaining===0){
         chosen.finish=t;
         done.add(chosen.pid);
+        enq(t);
+        applyAging(t);
         break;
       }
+
+      enq(t);
+      applyAging(t);
     }
 
     if(chosen.remaining>0){
@@ -1175,7 +1269,7 @@ function renderFullResults({procs,gantt},algoName){
         <div style="font-size:1.1rem;font-weight:800;">${algoName}</div>
       </div>
       <div style="display:flex;gap:8px;">
-        <button class="btn btn-secondary" onclick="runAllAndCompare()" style="font-size:0.74rem;">Run All & Compare</button>
+        <button class="btn btn-secondary" onclick="setMode('compare');startCompareSim()" style="font-size:0.74rem;">⚖ Compare All</button>
         <button class="btn btn-ghost" onclick="setMode('step');startSim();" style="font-size:0.74rem;">⊞ Step-by-Step</button>
       </div>
     </div>
@@ -1219,41 +1313,335 @@ function renderFullResults({procs,gantt},algoName){
 
 function runAllAndCompare(){
   if(!processes.length){showToast('Add at least one process','error');return;}
-  const rq=parseInt(document.getElementById('rr-quantum').value)||2;
-  const mq0=parseInt(document.getElementById('mlfq-q0').value)||2;
-  const mq1=parseInt(document.getElementById('mlfq-q1').value)||4;
-  const aging=parseInt(document.getElementById('mlfq-age').value)||10;
-  allResults={};
-  [['fcfs',()=>fullFCFS(cloneProcs()),'FCFS'],['sjf',()=>fullSJF(cloneProcs()),'SJF'],
-   ['srt',()=>fullSRT(cloneProcs()),'SRT'],['rr',()=>fullRR(cloneProcs(),rq),`RR(q=${rq})`],
-   ['mlfq',()=>fullMLFQ(cloneProcs(),[mq0,mq1,Infinity],aging),'MLFQ']]
-  .forEach(([k,fn,n])=>{const r=fn();allResults[k]={...fullAvgs(r.procs),name:n};});
-  renderFullResults(fullFCFS(cloneProcs()),'FCFS');
-  renderCompare();
-  document.getElementById('compare-section').style.display='block';
-  setTimeout(()=>document.getElementById('compare-section').scrollIntoView({behavior:'smooth'}),100);
+  setMode('compare');
+  startCompareSim();
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// ══ COMPARE ALL ALGORITHMS MODE ══════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════════════
+function startCompareSim(){
+  if(!processes.length){showToast('Add at least one process','error');return;}
+  const rq  = parseInt(document.getElementById('rr-quantum').value)||2;
+  const mq0 = parseInt(document.getElementById('mlfq-q0').value)||2;
+  const mq1 = parseInt(document.getElementById('mlfq-q1').value)||4;
+  const aging= parseInt(document.getElementById('mlfq-age').value)||10;
+
+  const algoList = [
+    {key:'fcfs',  label:'FCFS',         color:'#00e5ff', fn:()=>fullFCFS(cloneProcs())},
+    {key:'sjf',   label:'SJF',          color:'#a78bfa', fn:()=>fullSJF(cloneProcs())},
+    {key:'srt',   label:'SRT',          color:'#34d399', fn:()=>fullSRT(cloneProcs())},
+    {key:'rr',    label:`RR q=${rq}`,   color:'#fb923c', fn:()=>fullRR(cloneProcs(),rq)},
+    {key:'mlfq',  label:`MLFQ`,         color:'#f472b6', fn:()=>fullMLFQ(cloneProcs(),[mq0,mq1,Infinity],aging)},
+  ];
+
+  const results = {};
+  algoList.forEach(a=>{
+    try{
+      const r=a.fn();
+      const avgs=fullAvgs(r.procs);
+      const totalTime=r.gantt.length?r.gantt[r.gantt.length-1].end:0;
+      const cpuBusy=r.gantt.filter(g=>g.pid!=='IDLE').reduce((s,g)=>s+(g.end-g.start),0);
+      results[a.key]={
+        ...avgs, label:a.label, color:a.color,
+        procs:r.procs, gantt:r.gantt,
+        totalTime, cpuUtil:totalTime>0?Math.round(cpuBusy/totalTime*100):0,
+        throughput:r.procs.length/(totalTime||1),
+      };
+    }catch(e){ console.error(a.key, e); }
+  });
+
+  renderCompareDashboard(results, algoList, rq, mq0, mq1, aging);
   showToast('All 5 algorithms compared!','success');
 }
 
-function renderCompare(){
-  const keys=['fcfs','sjf','srt','rr','mlfq'];
-  const present=keys.filter(k=>allResults[k]);
-  if(present.length<2)return;
-  const metrics=[{key:'awt',label:'Avg Waiting Time'},{key:'atat',label:'Avg Turnaround Time'},{key:'art',label:'Avg Response Time'}];
-  const colors=['var(--c0)','var(--c1)','var(--c2)','var(--c3)','var(--c4)'];
-  const tabsHTML=`<div class="tabs" id="cmp-tabs">${metrics.map((m,i)=>`<button class="tab ${i===0?'active':''}" onclick="showCmpTab(${i})">${m.label}</button>`).join('')}</div>`;
-  const panesHTML=metrics.map((m,mi)=>{
-    const vals=present.map(k=>allResults[k][m.key]);
-    const maxV=Math.max(...vals),minV=Math.min(...vals);
-    const rows=present.map((k,i)=>{
-      const v=allResults[k][m.key];const pct=maxV>0?v/maxV*100:100;const isBest=v===minV;
-      return`<div class="bar-row"><div class="bar-algo">${allResults[k].name}</div>
-        <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${isBest?'var(--green)':colors[i]};">${pct>25?v.toFixed(2):''}</div></div>
-        <div class="bar-num">${v.toFixed(2)}${isBest?' ★':''}</div></div>`;
-    }).join('');
-    return`<div class="tab-pane ${mi===0?'active':''}" id="cmp-tab-${mi}"><div style="margin-bottom:10px;font-size:0.68rem;color:var(--muted);">★ = best · lower is better</div><div class="bar-chart">${rows}</div></div>`;
+function renderCompareDashboard(results, algoList, rq, mq0, mq1, aging){
+  // ── helpers ──
+  const fmt = v => (v==null||isNaN(v)?'—':v.toFixed(2));
+  const keys = algoList.map(a=>a.key).filter(k=>results[k]);
+  const metricKeys = ['awt','atat','art'];
+  const metricLabels = {awt:'Avg Wait',atat:'Avg Turnaround',art:'Avg Response'};
+  const metricColors = {awt:'var(--accent3)',atat:'var(--accent)',art:'var(--green)'};
+
+  // best/worst for each metric
+  const best={}, worst={};
+  metricKeys.forEach(m=>{
+    const vals=keys.map(k=>results[k][m]);
+    best[m]=keys[keys.indexOf(keys.find((_,i)=>vals[i]===Math.min(...vals)))];
+    worst[m]=keys[keys.indexOf(keys.find((_,i)=>vals[i]===Math.max(...vals)))];
+  });
+
+  // overall score: rank each algo across 3 metrics (1=best,5=worst), sum = lower is better
+  const ranks={};
+  keys.forEach(k=>{ranks[k]=0;});
+  metricKeys.forEach(m=>{
+    const sorted=[...keys].sort((a,b)=>results[a][m]-results[b][m]);
+    sorted.forEach((k,i)=>{ranks[k]+=(i+1);});
+  });
+  const overallBest=keys.slice().sort((a,b)=>ranks[a]-ranks[b])[0];
+
+  // ── winner cards ──
+  const winnerCards = metricKeys.map(m=>{
+    const bk=best[m];
+    const r=results[bk];
+    return`<div class="winner-card best">
+      <div class="winner-badge">BEST</div>
+      <div class="winner-card-label">${metricLabels[m]}</div>
+      <div class="winner-card-algo" style="color:${r.color};">${r.label}</div>
+      <div class="winner-card-val" style="color:${metricColors[m]};">${fmt(r[m])}</div>
+      <div class="winner-card-sub">vs avg ${fmt(keys.reduce((s,k)=>s+results[k][m],0)/keys.length)}</div>
+    </div>`;
   }).join('');
-  document.getElementById('compare-body').innerHTML=tabsHTML+panesHTML;
+
+  const overallCard=`<div class="winner-card best" style="border-color:var(--accent2);box-shadow:0 0 18px rgba(124,58,237,0.12);">
+    <div class="winner-badge" style="background:var(--accent2);color:#fff;">OVERALL</div>
+    <div class="winner-card-label">Best Overall</div>
+    <div class="winner-card-algo" style="color:${results[overallBest].color};">${results[overallBest].label}</div>
+    <div class="winner-card-val" style="color:var(--accent2);font-size:1.1rem;">Score ${ranks[overallBest]}</div>
+    <div class="winner-card-sub">Sum of metric ranks</div>
+  </div>`;
+
+  // ── metric comparison bars (one section, tabbed) ──
+  const metricTabsHTML = metricKeys.map((m,i)=>
+    `<button class="cmp-metric-tab ${i===0?'active':''}" onclick="cmpMetricTab(${i})">${metricLabels[m]}</button>`
+  ).join('');
+
+  const metricPanesHTML = metricKeys.map((m,mi)=>{
+    const vals=keys.map(k=>results[k][m]);
+    const maxV=Math.max(...vals)||1;
+    const minV=Math.min(...vals);
+    const sorted=[...keys].sort((a,b)=>results[a][m]-results[b][m]);
+    const rankMap={};sorted.forEach((k,i)=>rankMap[k]=i+1);
+    const rankColors=['#10b981','#34d399','#f59e0b','#fb923c','#ef4444'];
+
+    const rows=keys.map(k=>{
+      const v=results[k][m];
+      const pct=Math.round(v/maxV*100);
+      const rnk=rankMap[k];
+      const isBest=v===minV;
+      return`<div class="cmp-algo-row">
+        <div class="cmp-algo-name">
+          <span class="cmp-bar-rank" style="background:${rankColors[rnk-1]}22;color:${rankColors[rnk-1]};border:1px solid ${rankColors[rnk-1]}44;">${rnk}</span>
+          <span class="cmp-algo-badge" style="background:${results[k].color}22;color:${results[k].color};border:1px solid ${results[k].color}44;">${results[k].label}</span>
+        </div>
+        <div class="cmp-bar-wrap">
+          <div class="cmp-bar-track">
+            <div class="cmp-bar-fill${isBest?' is-best':''}" style="width:${pct}%;background:${isBest?'var(--green)':results[k].color};">${pct>18?fmt(v):''}</div>
+          </div>
+          <div class="cmp-bar-num" style="color:${isBest?'var(--green)':'var(--text)'};">${fmt(v)}${isBest?' ★':''}</div>
+        </div>
+      </div>`;
+    }).join('');
+
+    return`<div class="tab-pane ${mi===0?'active':''}" id="cmp-mpane-${mi}">
+      <div style="font-size:0.65rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:12px;">Lower is better · ★ = best</div>
+      <div class="cmp-bars-grid">${rows}</div>
+    </div>`;
+  }).join('');
+
+  // ── stat cards row (throughput, utilization, completion time) ──
+  const statCards = keys.map(k=>{
+    const r=results[k];
+    const isBestUtil=r.cpuUtil===Math.max(...keys.map(k2=>results[k2].cpuUtil));
+    const isFastest=r.totalTime===Math.min(...keys.map(k2=>results[k2].totalTime));
+    return`<div class="cmp-stat-card">
+      <div class="cmp-stat-lbl" style="color:${r.color};">${r.label}</div>
+      <div class="cmp-stat-val" style="color:${isFastest?'var(--green)':'var(--text)'};">${r.totalTime}<span style="font-size:0.65rem;color:var(--muted);"> t</span></div>
+      <div class="cmp-stat-sub">CPU ${r.cpuUtil}% util${isBestUtil?' ★':''}</div>
+    </div>`;
+  }).join('');
+
+  // ── all-algo gantt rows ──
+  // Use shared time scale across all algorithms
+  const globalMax=Math.max(...keys.map(k=>results[k].totalTime));
+  const GSCALE=Math.max(14,Math.min(44,Math.floor(520/Math.max(globalMax,1))));
+
+  const ganttRows = keys.map(k=>{
+    const r=results[k];
+    // merge consecutive same-pid
+    const merged=[];
+    r.gantt.forEach(e=>{
+      if(merged.length&&merged[merged.length-1].pid===e.pid&&merged[merged.length-1].end===e.start)
+        merged[merged.length-1].end=e.end;
+      else merged.push({...e});
+    });
+    const bars=merged.map(e=>{
+      const w=Math.max(2,(e.end-e.start)*GSCALE);
+      if(e.pid==='IDLE') return`<div class="cmp-gantt-bar idle" style="width:${w}px;" title="IDLE ${e.start}→${e.end}"></div>`;
+      return`<div class="cmp-gantt-bar" style="width:${w}px;background:${e.color.hex}44;border:1px solid ${e.color.hex}88;" title="${e.pid}: ${e.start}→${e.end}"></div>`;
+    }).join('');
+    return`<div class="cmp-gantt-row">
+      <div class="cmp-gantt-label" style="color:${r.color};">${r.label}</div>
+      <div class="cmp-gantt-scroll"><div class="cmp-gantt-bars">${bars}</div></div>
+    </div>`;
+  }).join('');
+
+  // shared time axis
+  const axisTicks=[...new Set([0,...Array.from({length:Math.ceil(globalMax/5)+1},(_,i)=>i*5).filter(v=>v<=globalMax),globalMax])].sort((a,b)=>a-b);
+  const axisHTML=axisTicks.map((v,i)=>{
+    const next=axisTicks[i+1];
+    const w=next!=null?(next-v)*GSCALE:0;
+    return`<div class="cmp-gantt-tick" style="min-width:${w}px;">${v}</div>`;
+  }).join('');
+
+  // ── per-process breakdown table ──
+  const pidList=[...new Set(processes.map(p=>p.pid))].sort();
+  const procRows = pidList.map(pid=>{
+    const proc=processes.find(p=>p.pid===pid);
+    // header row for this process
+    const waitVals=keys.map(k=>{const p=results[k].procs.find(x=>x.pid===pid);return p?p.wait:null;});
+    const tatVals =keys.map(k=>{const p=results[k].procs.find(x=>x.pid===pid);return p?p.tat:null;});
+    const rtVals  =keys.map(k=>{const p=results[k].procs.find(x=>x.pid===pid);return p?p.response:null;});
+
+    const minWait=Math.min(...waitVals.filter(v=>v!=null));
+    const minTat =Math.min(...tatVals.filter(v=>v!=null));
+    const minRt  =Math.min(...rtVals.filter(v=>v!=null));
+    const maxWait=Math.max(...waitVals.filter(v=>v!=null));
+    const maxTat =Math.max(...tatVals.filter(v=>v!=null));
+    const maxRt  =Math.max(...rtVals.filter(v=>v!=null));
+
+    const cellWait=keys.map((k,i)=>waitVals[i]==null?'<td>—</td>':`<td class="${waitVals[i]===minWait?'best-cell':waitVals[i]===maxWait?'worst-cell':''}">${waitVals[i]}</td>`).join('');
+    const cellTat =keys.map((k,i)=>tatVals[i]==null?'<td>—</td>':`<td class="${tatVals[i]===minTat?'best-cell':tatVals[i]===maxTat?'worst-cell':''}">${tatVals[i]}</td>`).join('');
+    const cellRt  =keys.map((k,i)=>rtVals[i]==null?'<td>—</td>':`<td class="${rtVals[i]===minRt?'best-cell':rtVals[i]===maxRt?'worst-cell':''}">${rtVals[i]}</td>`).join('');
+
+    return`
+      <tr class="cmp-proc-group-hdr">
+        <td rowspan="3"><span style="padding:2px 8px;border-radius:4px;background:${proc.color.hex}22;color:${proc.color.hex};border:1px solid ${proc.color.hex}55;font-size:0.7rem;font-weight:700;">${pid}</span></td>
+        <td style="color:var(--muted);font-size:0.65rem;">Wait</td>${cellWait}
+      </tr>
+      <tr class="cmp-proc-group">
+        <td style="color:var(--muted);font-size:0.65rem;">Turnaround</td>${cellTat}
+      </tr>
+      <tr class="cmp-proc-group">
+        <td style="color:var(--muted);font-size:0.65rem;">Response</td>${cellRt}
+      </tr>`;
+  }).join('');
+
+  const procTableHeader=keys.map(k=>`<th style="color:${results[k].color};">${results[k].label}</th>`).join('');
+
+  // ── assemble dashboard ──
+  document.getElementById('sim-panel').innerHTML=`
+    <div class="cmp-dashboard">
+
+      <!-- Header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+        <div>
+          <div style="font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;">Mode</div>
+          <div style="font-size:1.1rem;font-weight:800;">Algorithm Comparison</div>
+          <div style="font-size:0.7rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:2px;">${processes.length} processes · RR q=${rq} · MLFQ q=${mq0},${mq1},∞ · aging=${aging}</div>
+        </div>
+        <button class="btn btn-ghost" onclick="setMode('step');startSim();" style="font-size:0.74rem;">⊞ Step-by-Step</button>
+      </div>
+
+      <!-- Winner cards -->
+      <div>
+        <div style="font-size:0.64rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px;font-weight:700;">🏆 Best Per Metric</div>
+        <div class="winner-banner">
+          ${winnerCards}
+          ${overallCard}
+        </div>
+      </div>
+
+      <!-- Metric bars -->
+      <div class="cmp-metric-section">
+        <div class="cmp-metric-header">
+          <div class="dot" style="background:var(--accent3)"></div>
+          <h3>Metric Comparison</h3>
+          <div class="cmp-metric-tabs" id="cmp-metric-tabs">${metricTabsHTML}</div>
+        </div>
+        <div class="cmp-metric-body">
+          ${metricPanesHTML}
+        </div>
+      </div>
+
+      <!-- Completion time + utilisation -->
+      <div>
+        <div style="font-size:0.64rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px;font-weight:700;">⏱ Completion Time &amp; CPU Utilisation</div>
+        <div class="cmp-stat-row">${statCards}</div>
+      </div>
+
+      <!-- All-algo Gantt -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="dot" style="background:var(--accent2)"></div>
+          <h2>Gantt Charts — All Algorithms</h2>
+        </div>
+        <div class="panel-body">
+          <div style="overflow-x:auto;">
+            <div class="cmp-gantt-grid">${ganttRows}</div>
+            <div class="cmp-gantt-axis">
+              <div></div>
+              <div class="cmp-gantt-ticks">${axisHTML}</div>
+            </div>
+          </div>
+          <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;">
+            ${keys.map(k=>`<span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;padding:2px 8px;border-radius:4px;background:${results[k].color}22;color:${results[k].color};border:1px solid ${results[k].color}44;">${results[k].label}</span>`).join('')}
+            <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;padding:2px 8px;border-radius:4px;background:var(--surface2);color:var(--muted);border:1px solid var(--border);">IDLE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Per-process breakdown -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="dot" style="background:var(--green)"></div>
+          <h2>Per-Process Breakdown</h2>
+          <span style="font-size:0.65rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-left:8px;">green = best · red = worst per process</span>
+        </div>
+        <div class="panel-body">
+          <div style="overflow-x:auto;">
+            <table class="cmp-proc-table">
+              <thead><tr><th>PID</th><th>Metric</th>${procTableHeader}</tr></thead>
+              <tbody>${procRows}</tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full metrics table -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="dot" style="background:var(--accent)"></div>
+          <h2>Summary Table</h2>
+        </div>
+        <div class="panel-body">
+          <div style="overflow-x:auto;">
+            <table class="cmp-proc-table">
+              <thead><tr><th>Algorithm</th><th>Avg Wait</th><th>Avg Turnaround</th><th>Avg Response</th><th>CPU Util %</th><th>Finish Time</th><th>Score</th></tr></thead>
+              <tbody>
+                ${keys.slice().sort((a,b)=>ranks[a]-ranks[b]).map((k,rank)=>{
+                  const r=results[k];
+                  const isOverallBest=k===overallBest;
+                  return`<tr style="${isOverallBest?'background:rgba(124,58,237,0.06);':''}">
+                    <td><span class="cmp-algo-badge" style="background:${r.color}22;color:${r.color};border:1px solid ${r.color}44;">${r.label}</span>${isOverallBest?'<span style="margin-left:6px;font-size:0.6rem;color:var(--accent2);font-family:JetBrains Mono,monospace;font-weight:700;">★ OVERALL BEST</span>':''}</td>
+                    <td class="${k===best.awt?'best-cell':k===worst.awt?'worst-cell':''}">${fmt(r.awt)}</td>
+                    <td class="${k===best.atat?'best-cell':k===worst.atat?'worst-cell':''}">${fmt(r.atat)}</td>
+                    <td class="${k===best.art?'best-cell':k===worst.art?'worst-cell':''}">${fmt(r.art)}</td>
+                    <td>${r.cpuUtil}%</td>
+                    <td>${r.totalTime}</td>
+                    <td style="color:var(--accent2);font-weight:700;">${ranks[k]}</td>
+                  </tr>`;
+                }).join('')}
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:10px;font-size:0.65rem;color:var(--muted);font-family:'JetBrains Mono',monospace;">Score = sum of ranks across Avg Wait, Turnaround, Response (lower = better)</div>
+        </div>
+      </div>
+
+    </div>
+  `;
+
+  document.getElementById('compare-section').style.display='none';
+}
+
+function cmpMetricTab(idx){
+  document.querySelectorAll('#cmp-metric-tabs .cmp-metric-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  document.querySelectorAll('[id^="cmp-mpane-"]').forEach((p,i)=>p.classList.toggle('active',i===idx));
+}
+
+function renderCompare(){
+  // legacy — now handled by renderCompareDashboard
 }
 function showCmpTab(idx){
   document.querySelectorAll('#cmp-tabs .tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
